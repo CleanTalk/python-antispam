@@ -19,7 +19,7 @@ class TestCleanTalk(unittest.TestCase):
                                 submit_time = 12,
                                 js_on = 1)
 
-        print (response)
+        print(response)
         #make sure that response contain 'allow'
         self.assertTrue('allow' in response)
         #make sure that 'allow' is true

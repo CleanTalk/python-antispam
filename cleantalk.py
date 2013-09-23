@@ -14,6 +14,7 @@ except ImportError:
 
 import json
 
+
 class CleanTalk:
     """Python API for CleanTalk.org"""
     VERSION = 1.0
@@ -66,7 +67,8 @@ class CleanTalk:
             method_name = self.__method_name
 
         url = self.__server_url + self.__api_url
-        headers = { 'User-Agent' : self.user_agent, 'content-type' :'application/json; charset=' +  CleanTalk.ENCODING }
+        headers = { 'User-Agent' : self.user_agent, 
+                    'content-type' :'application/json' }
 
         values = {
             'auth_key' : self.__auth_key,
@@ -85,5 +87,9 @@ class CleanTalk:
         response_bytes = response.read()
         response_str = response_bytes.decode(CleanTalk.ENCODING)
         response_parsed = json.loads(response_str)
+
+        #Этих строчек быть не должно при правильных хеадерах от сервера
+        if 'comment' in response_parsed:
+            response_parsed['comment'] = response_parsed['comment'].encode('ISO-8859-1', 'ignore').decode('utf-8', 'ignore')
 
         return response_parsed
