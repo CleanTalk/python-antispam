@@ -26,7 +26,8 @@ class CleanTalk:
                  server_url = 'http://moderate.cleantalk.ru',
                  api_url='/api2.0',
                  connection_timeout=3, 
-                 method_name='check_message'):
+                 method_name='check_message',
+                 agent = None):
 
         """
         This method constructs a new CleanTalk object and returns it.
@@ -41,6 +42,10 @@ class CleanTalk:
         self.__connection_timeout = connection_timeout
         self.__method_name = method_name
         self.__auth_key = auth_key
+        if agent:
+            self.__agent = agent
+        else:
+            self.__agent = 'python-api-' + str(CleanTalk.VERSION)
 
     def request(self, message, sender_ip, sender_email, sender_nickname, submit_time, js_on, example = '', method_name = None):
         """
@@ -68,7 +73,7 @@ class CleanTalk:
 
         url = self.__server_url + self.__api_url
         headers = { 'User-Agent' : self.user_agent, 
-                    'content-type' :'application/json' }
+                    'content-type' :'application/json; encoding=utf-8' }
 
         values = {
             'auth_key' : self.__auth_key,
@@ -79,16 +84,18 @@ class CleanTalk:
             'sender_email' : sender_email,
             'sender_nickname' : sender_nickname,
             'submit_time' : submit_time,
-            'js_on' : js_on
+            'js_on' : js_on,
+            'agent' : self.__agent
         }
         data = json.dumps(values, separators=(',',':'))
+        print(data)
         request = Request(url, data.encode(CleanTalk.ENCODING), headers)
         response = urlopen(request, timeout=self.__connection_timeout)
+        print(response.headers)
         response_bytes = response.read()
         response_str = response_bytes.decode(CleanTalk.ENCODING)
         response_parsed = json.loads(response_str)
 
-        #Этих строчек быть не должно при правильных хеадерах от сервера
         if 'comment' in response_parsed:
             response_parsed['comment'] = response_parsed['comment'].encode('ISO-8859-1', 'ignore').decode('utf-8', 'ignore')
 
