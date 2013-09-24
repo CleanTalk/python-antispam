@@ -88,10 +88,8 @@ class CleanTalk:
             'agent' : self.__agent
         }
         data = json.dumps(values, separators=(',',':'))
-        print(data)
         request = Request(url, data.encode(CleanTalk.ENCODING), headers)
         response = urlopen(request, timeout=self.__connection_timeout)
-        print(response.headers)
         response_bytes = response.read()
         response_str = response_bytes.decode(CleanTalk.ENCODING)
         response_parsed = json.loads(response_str)
