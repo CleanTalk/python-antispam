@@ -94,7 +94,4 @@ class CleanTalk:
         response_str = response_bytes.decode(CleanTalk.ENCODING)
         response_parsed = json.loads(response_str)
 
-        if 'comment' in response_parsed:
-            response_parsed['comment'] = response_parsed['comment'].encode('ISO-8859-1', 'ignore').decode('utf-8', 'ignore')
-
         return response_parsed
