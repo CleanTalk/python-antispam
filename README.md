@@ -16,7 +16,7 @@ API sends a comment's text and several previous approved comments to the servers
 
 ## Requirements
 
-   * Python 2.6 and above Ver
+   * Python 2.6 and above
    * Python 3 and above 
 
 ## SPAM test for text comment sample 
