@@ -23,7 +23,7 @@ class CleanTalk:
 
     def __init__(self,
                  auth_key,
-                 server_url = 'http://moderate.cleantalk.org',
+                 server_url = 'https://moderate.cleantalk.org',
                  api_url='/api2.0',
                  connection_timeout=8,
                  method_name='check_message',
