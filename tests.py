@@ -8,8 +8,8 @@ import unittest
 
 class TestCleanTalk(unittest.TestCase):
 
-    def setUp(self):
-        self.ct = CleanTalk(auth_key='7emegy4e')
+    def setUp(self, auth_key='7emegy4e'):
+        self.ct = CleanTalk(auth_key)
 
     def test_blacklisted(self):
         response = self.ct.request(
@@ -20,6 +20,8 @@ class TestCleanTalk(unittest.TestCase):
             submit_time = 12, # The time taken to fill the comment form in seconds
             js_on = 1 # The presence of JavaScript for the site visitor, 0|1
         )
+        if response.get('comment') == '***  Trial period expired. Please <a href="http://cleantalk.org/my/bill/recharge" target="_blank">subscribe</a> to the service.  ***':
+            raise Exception('Need a valid auth_key')
         print(response)
         #make sure that 'allow' is 0
         self.assertFalse(response['allow'])
@@ -33,6 +35,8 @@ class TestCleanTalk(unittest.TestCase):
             submit_time = 12, # The time taken to fill the comment form in seconds
             js_on = 1 # The presence of JavaScript for the site visitor, 0|1
         )
+        if response.get('comment') == '***  Trial period expired. Please <a href="http://cleantalk.org/my/bill/recharge" target="_blank">subscribe</a> to the service.  ***':
+            raise Exception('Need a valid auth_key')
         print(response)
         self.assertTrue(response['allow'])
 
@@ -45,6 +49,8 @@ class TestCleanTalk(unittest.TestCase):
             submit_time = 12, # The time taken to fill the comment form in seconds
             js_on = 1 # The presence of JavaScript for the site visitor, 0|1
         )
+        if response.get('comment') == '***  Trial period expired. Please <a href="http://cleantalk.org/my/bill/recharge" target="_blank">subscribe</a> to the service.  ***':
+            raise Exception('Need a valid auth_key')
         print(response)
         self.assertTrue(response['allow'])
 
@@ -57,6 +63,8 @@ class TestCleanTalk(unittest.TestCase):
             submit_time = 1, # The time taken to fill the comment form in seconds
             js_on = 0 # The presence of JavaScript for the site visitor, 0|1
         )
+        if response.get('comment') == '***  Trial period expired. Please <a href="http://cleantalk.org/my/bill/recharge" target="_blank">subscribe</a> to the service.  ***':
+            raise Exception('Need a valid auth_key')
         print(response)
         self.assertFalse(response['allow'])
 
@@ -70,9 +78,12 @@ class TestCleanTalk(unittest.TestCase):
             submit_time = 12, # The time taken to fill the comment form in seconds
             js_on = None # The presence of JavaScript for the site visitor, 0|1
         )
+        if response.get('comment') == '***  Trial period expired. Please <a href="http://cleantalk.org/my/bill/recharge" target="_blank">subscribe</a> to the service.  ***':
+            raise Exception('Need a valid auth_key')
         print(response)
         self.assertFalse(response['allow'])
 
+    def test_valid_user(self):
         #good user
         response = self.ct.request(
             message = 'abc', # Comment visitor to the site
@@ -82,6 +93,8 @@ class TestCleanTalk(unittest.TestCase):
             submit_time = 12, # The time taken to fill the comment form in seconds
             js_on = None # The presence of JavaScript for the site visitor, 0|1
         )
+        if response.get('comment') == '***  Trial period expired. Please <a href="http://cleantalk.org/my/bill/recharge" target="_blank">subscribe</a> to the service.  ***':
+            raise Exception('Need a valid auth_key')
         print(response)
         self.assertTrue(response['allow'])
 
