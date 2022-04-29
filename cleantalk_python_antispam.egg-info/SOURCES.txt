@@ -1,0 +1,9 @@
+setup.cfg
+setup.py
+cleantalk_python_antispam/__init__.py
+cleantalk_python_antispam/cleantalk.py
+cleantalk_python_antispam.egg-info/PKG-INFO
+cleantalk_python_antispam.egg-info/SOURCES.txt
+cleantalk_python_antispam.egg-info/dependency_links.txt
+cleantalk_python_antispam.egg-info/not-zip-safe
+cleantalk_python_antispam.egg-info/top_level.txt

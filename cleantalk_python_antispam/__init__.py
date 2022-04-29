@@ -1,0 +1,1 @@
+from .cleantalk import CleanTalk
