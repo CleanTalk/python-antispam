@@ -1,13 +1,13 @@
 Metadata-Version: 2.1
 Name: cleantalk-python-antispam
-Version: 1.1.2
+Version: 1.0.0
 Summary: CleanTalk module for Python
 Author-email: plugins@cleantalk.org
 License: UNKNOWN
 Platform: UNKNOWN
 Description-Content-Type: text/markdown
 
-python-antispam
+cleantalk_python_antispam
 ===============
 
 A Python API for antispam service cleantalk.org. Invisible protection from spam, no captches, no puzzles, no animals and no math.
