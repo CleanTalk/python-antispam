@@ -46,3 +46,14 @@ API returns Python dictionary object, where keys:
   * allow (0|1) - allow to publish or not, in other words spam or ham
   * comment (string) - server comment for requests.
   * id (string MD5 HEX hash) - unique request idenifier.
+
+## Installing via PyPi
+Run the next command in the terminal:
+
+```python
+pip install cleantalk-python-antispam
+```
+Then you can use Cleantalk class import:
+```python
+from cleantalk_python_antispam.cleantalk import CleanTalk
+```
