@@ -5,7 +5,7 @@ from __future__ import print_function
 from cleantalk import CleanTalk
 import os
 import unittest
-
+import json
 
 class TestCleanTalk(unittest.TestCase):
 
@@ -21,7 +21,8 @@ class TestCleanTalk(unittest.TestCase):
             sender_email='s@cleantalk.org',  # Email IP of the visitor
             sender_nickname='spam_bot',  # Nickname of the visitor
             submit_time=12,  # The time taken to fill the comment form in seconds
-            js_on=1  # The presence of JavaScript for the site visitor, 0|1
+            js_on=1,  # The presence of JavaScript for the site visitor, 0|1
+            post_info=json.dumps({'post_url': 'https://text.com/1/2/3/4.html'})
         )
         print(response)
         # make sure that 'allow' is 0
@@ -34,7 +35,8 @@ class TestCleanTalk(unittest.TestCase):
             sender_email='support@cleantalk.org',  # Email IP of the visitor
             sender_nickname='real human',  # Nickname of the visitor
             submit_time=12,  # The time taken to fill the comment form in seconds
-            js_on=1  # The presence of JavaScript for the site visitor, 0|1
+            js_on=1,  # The presence of JavaScript for the site visitor, 0|1
+            post_info = json.dumps({'post_url': 'https://text.com/1/2/3/4.html'})
         )
         print(response)
         self.assertTrue(response['allow'])
@@ -46,7 +48,8 @@ class TestCleanTalk(unittest.TestCase):
             sender_email='sadasdas@cleaasdasdntalk.org',  # Email IP of the visitor
             sender_nickname='real human',  # Nickname of the visitor
             submit_time=12,  # The time taken to fill the comment form in seconds
-            js_on=1  # The presence of JavaScript for the site visitor, 0|1
+            js_on=1,  # The presence of JavaScript for the site visitor, 0|1
+            post_info=json.dumps({'post_url': 'https://text.com/1/2/3/4.html'})
         )
         print(response)
         self.assertTrue(bool(response['codes'].find('EMAIL_DOMAIN_NOT_EXISTS')))
@@ -59,7 +62,8 @@ class TestCleanTalk(unittest.TestCase):
             sender_email='good@cleantalk.org',  # Email IP of the visitor
             sender_nickname='aa-shi',  # Nickname of the visitor
             submit_time=1,  # The time taken to fill the comment form in seconds
-            js_on=0  # The presence of JavaScript for the site visitor, 0|1
+            js_on=1,  # The presence of JavaScript for the site visitor, 0|1
+            post_info=json.dumps({'post_url': 'https://text.com/1/2/3/4.html'})
         )
         print(response)
         self.assertTrue(bool(response['codes'].find('JS DISABLED')))
@@ -73,7 +77,8 @@ class TestCleanTalk(unittest.TestCase):
             sender_email='stop_email@example.com',  # Email IP of the visitor
             sender_nickname='spam_bot',  # Nickname of the visitor
             submit_time=12,  # The time taken to fill the comment form in seconds
-            js_on=None  # The presence of JavaScript for the site visitor, 0|1
+            js_on=1,  # The presence of JavaScript for the site visitor, 0|1
+            post_info=json.dumps({'post_url': 'https://text.com/1/2/3/4.html'})
         )
         print(response)
         self.assertTrue(bool(response['codes'].find('JS DISABLED')))
@@ -85,7 +90,8 @@ class TestCleanTalk(unittest.TestCase):
             sender_email='s@cleantalk.org',  # Email IP of the visitor
             sender_nickname='aa-shi',  # Nickname of the visitor
             submit_time=12,  # The time taken to fill the comment form in seconds
-            js_on=None  # The presence of JavaScript for the site visitor, 0|1
+            js_on=1,  # The presence of JavaScript for the site visitor, 0|1
+            post_info=json.dumps({'post_url': 'https://text.com/1/2/3/4.html'})
         )
         print(response)
         self.assertTrue(bool(response['codes'].find('JS DISABLED')))
