@@ -47,7 +47,7 @@ class CleanTalk:
         else:
             self.__agent = 'python-api-' + str(CleanTalk.VERSION)
 
-    def request(self, message, sender_ip, sender_email, sender_nickname, submit_time, js_on, example = '', method_name = None):
+    def request(self, message, sender_ip, sender_email, sender_nickname, submit_time, js_on, post_info, example = '', method_name = None):
         """
         This method will dispatch call to servers.
         Exceptions can be raised: ValueError on bad json, URLError on bad url, HTTPError, HTTPException on http-error
@@ -59,6 +59,7 @@ class CleanTalk:
         :param submit_time: The time taken to fill the comment form in seconds
         :param js_on: The presence of JavaScript for the site visitor, 0|1
         :param method_name:
+        :param post_info: info about the page
         :return: dictionary, where:
                     KEY                     VALUE
                 -----------             --------------------
@@ -85,7 +86,8 @@ class CleanTalk:
             'sender_nickname' : sender_nickname,
             'submit_time' : submit_time,
             'js_on' : js_on,
-            'agent' : self.__agent
+            'agent' : self.__agent,
+            'post_info': post_info
         }
         data = json.dumps(values, separators=(',',':'))
         request = Request(url, data.encode(CleanTalk.ENCODING), headers)
