@@ -18,6 +18,7 @@ API sends a comment's text and several previous approved comments to the servers
 
    * Python 2.6 and above
    * Python 3 and above 
+   * CleanTalk account https://cleantalk.org/register?product=anti-spam
 
 ## SPAM test for text comment sample 
 
