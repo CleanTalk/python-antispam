@@ -1,7 +1,10 @@
 python-antispam
 ============
 
-A Python API for antispam service cleantalk.org. Invisible protection from spam, no captches, no puzzles, no animals and no math.
+Prevents spam in your python web apps. Cloud features allow you to use additional anti-spam functionality. Cloud features allow you to use additional anti-spam functionality, such as: Personal IP/Email lists, blocking by country, language, stop words and etc.
+
+Spam attacks log - allows to view all filtered requests in the "Log of spam attacks".
+The log contains a detailed information about each request for a time period. At any time, you can check the request and make sure that the filtering is correct. A Python API for antispam service cleantalk.org. Invisible protection from spam, no captches, no puzzles, no animals and no math.
 
 ## How API stops spam?
 API uses several simple tests to stop spammers.
