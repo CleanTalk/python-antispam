@@ -61,3 +61,9 @@ Then you can use Cleantalk class import:
 ```python
 from cleantalk_python_antispam.cleantalk import CleanTalk
 ```
+
+## Changelog
+Version 1.2
+  * New. Now page URL could be added to the request.
+  * Mod. Tests file updated.
+  * Mod. Readme updated.
