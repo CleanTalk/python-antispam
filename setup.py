@@ -5,7 +5,7 @@ long_description = b"cleantalk_python_antispam\n===============\n\nA Python API 
 long_description = codecs.decode(long_description, 'ASCII')
 
 setup(name='cleantalk_python_antispam',
-      version='1.0.0',
+      version='1.2.0',
       description='CleanTalk module for Python',
       long_description=long_description,
       long_description_content_type='text/markdown',

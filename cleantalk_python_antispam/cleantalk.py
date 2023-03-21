@@ -17,7 +17,7 @@ import json
 
 class CleanTalk:
     """Python API for CleanTalk.org"""
-    VERSION = 1.1
+    VERSION = 1.2
     ENCODING = 'utf-8'
     user_agent = 'Mozilla/5.0'
 
@@ -47,7 +47,7 @@ class CleanTalk:
         else:
             self.__agent = 'python-api-' + str(CleanTalk.VERSION)
 
-    def request(self, message, sender_ip, sender_email, sender_nickname, submit_time, js_on, example = '', method_name = None):
+    def request(self, message, sender_ip, sender_email, sender_nickname, submit_time, js_on, post_info, example = '', method_name = None):
         """
         This method will dispatch call to servers.
         Exceptions can be raised: ValueError on bad json, URLError on bad url, HTTPError, HTTPException on http-error
@@ -59,6 +59,7 @@ class CleanTalk:
         :param submit_time: The time taken to fill the comment form in seconds
         :param js_on: The presence of JavaScript for the site visitor, 0|1
         :param method_name:
+        :param post_info: info about the page
         :return: dictionary, where:
                     KEY                     VALUE
                 -----------             --------------------
@@ -72,20 +73,21 @@ class CleanTalk:
             method_name = self.__method_name
 
         url = self.__server_url + self.__api_url
-        headers = { 'User-Agent' : self.user_agent, 
+        headers = { 'User-Agent' : self.user_agent,
                     'content-type' :'application/json; encoding=utf-8' }
 
         values = {
-            'auth_key' : self.__auth_key,
-            'method_name' : method_name,
-            'message' : message,
-            'example' : example,
-            'sender_ip' : sender_ip,
-            'sender_email' : sender_email,
-            'sender_nickname' : sender_nickname,
-            'submit_time' : submit_time,
-            'js_on' : js_on,
-            'agent' : self.__agent
+            'auth_key': self.__auth_key,
+            'method_name': method_name,
+            'message': message,
+            'example': example,
+            'sender_ip': sender_ip,
+            'sender_email': sender_email,
+            'sender_nickname': sender_nickname,
+            'submit_time': submit_time,
+            'js_on': js_on,
+            'agent': self.__agent,
+            'post_info': post_info
         }
         data = json.dumps(values, separators=(',',':'))
         request = Request(url, data.encode(CleanTalk.ENCODING), headers)
