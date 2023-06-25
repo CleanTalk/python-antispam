@@ -37,6 +37,7 @@ ct_result = ct.request(
                 sender_nickname = 'spam_bot', # Visitor nickname
                 js_on = 1, # Is visitor has JavaScript
                 submit_time = 12 # Seconds from start form filling till the form POST
+                # event_token = 'xxx' # fill it with ct_bot_detector_event_token hidden input from your form (auto generate)
         )
 #Check
 if ct_result['allow']:
@@ -60,6 +61,11 @@ pip install cleantalk-python-antispam
 Then you can use Cleantalk class import:
 ```python
 from cleantalk_python_antispam.cleantalk import CleanTalk
+```
+
+For improve protection include javascript to your layout before \<\/body\> tag.
+```html
+<script type="text/javascript" src="https://moderate.cleantalk.org/ct-bot-detector-wrapper.js"></script>
 ```
 
 ## Changelog
