@@ -63,7 +63,7 @@ Then you can use Cleantalk class import:
 from cleantalk_python_antispam.cleantalk import CleanTalk
 ```
 
-For improve protection include javascript to your layout before \<\/body\> tag.
+For improve protection include javascript to your layout before \<\/body\> tag:
 ```html
 <script type="text/javascript" src="https://moderate.cleantalk.org/ct-bot-detector-wrapper.js"></script>
 ```
