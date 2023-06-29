@@ -35,7 +35,6 @@ ct_result = ct.request(
                 sender_ip = '196.19.250.114', # Visitor IP address
                 sender_email = 'stop_email@example.com', # Visitor email
                 sender_nickname = 'spam_bot', # Visitor nickname
-                submit_time = 12 # Seconds from start form filling till the form POST
                 # event_token = 'xxx' # fill it with ct_bot_detector_event_token hidden input from your form (auto generate)
         )
 #Check
