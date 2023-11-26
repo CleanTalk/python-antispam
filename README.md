@@ -27,14 +27,16 @@ API sends a comment's text and several previous approved comments to the servers
 
 ```python
 from cleantalk import CleanTalk
+import json
 
 
 ct = CleanTalk(auth_key='yourkey')
 ct_result = ct.request(
-                message = 'abc', # Visitor comment
-                sender_ip = '196.19.250.114', # Visitor IP address
-                sender_email = 'stop_email@example.com', # Visitor email
-                sender_nickname = 'spam_bot', # Visitor nickname
+                message = 'abc', # Required. Visitor comment
+                sender_ip = '196.19.250.114', # Required. Visitor IP address
+                sender_email = 'stop_email@example.com', # Required. Visitor email
+                sender_nickname = 'spam_bot', # Required. Visitor nickname
+                post_info= json.dumps({'post_url': 'https://yoursite.com'}) # Optional. Additional post info in JSON format.
                 # event_token = 'xxx' # fill it with ct_bot_detector_event_token hidden input from your form (auto generate)
         )
 #Check
