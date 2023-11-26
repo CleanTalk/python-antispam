@@ -20,8 +20,6 @@ class TestCleanTalk(unittest.TestCase):
             sender_ip='196.19.250.114',  # IP address of the visitor
             sender_email='s@cleantalk.org',  # Email IP of the visitor
             sender_nickname='spam_bot',  # Nickname of the visitor
-            submit_time=12,  # The time taken to fill the comment form in seconds
-            js_on=1,  # The presence of JavaScript for the site visitor, 0|1
             post_info=json.dumps({'post_url': 'https://text.com/1/2/3/4.html'})
         )
         print(response)
@@ -34,8 +32,6 @@ class TestCleanTalk(unittest.TestCase):
             sender_ip='127.0.0.1',  # IP address of the visitor
             sender_email='support@cleantalk.org',  # Email IP of the visitor
             sender_nickname='real human',  # Nickname of the visitor
-            submit_time=12,  # The time taken to fill the comment form in seconds
-            js_on=1,  # The presence of JavaScript for the site visitor, 0|1
             post_info = json.dumps({'post_url': 'https://text.com/1/2/3/4.html'})
         )
         print(response)
@@ -47,8 +43,6 @@ class TestCleanTalk(unittest.TestCase):
             sender_ip='127.0.0.1',  # IP address of the visitor
             sender_email='sadasdas@cleaasdasdntalk.org',  # Email IP of the visitor
             sender_nickname='real human',  # Nickname of the visitor
-            submit_time=12,  # The time taken to fill the comment form in seconds
-            js_on=1,  # The presence of JavaScript for the site visitor, 0|1
             post_info=json.dumps({'post_url': 'https://text.com/1/2/3/4.html'})
         )
         print(response)
@@ -61,8 +55,6 @@ class TestCleanTalk(unittest.TestCase):
             sender_ip='127.0.0.1',  # IP address of the visitor
             sender_email='good@cleantalk.org',  # Email IP of the visitor
             sender_nickname='aa-shi',  # Nickname of the visitor
-            submit_time=1,  # The time taken to fill the comment form in seconds
-            js_on=1,  # The presence of JavaScript for the site visitor, 0|1
             post_info=json.dumps({'post_url': 'https://text.com/1/2/3/4.html'})
         )
         print(response)
@@ -76,8 +68,6 @@ class TestCleanTalk(unittest.TestCase):
             sender_ip='196.19.250.114',  # IP address of the visitor
             sender_email='stop_email@example.com',  # Email IP of the visitor
             sender_nickname='spam_bot',  # Nickname of the visitor
-            submit_time=12,  # The time taken to fill the comment form in seconds
-            js_on=1,  # The presence of JavaScript for the site visitor, 0|1
             post_info=json.dumps({'post_url': 'https://text.com/1/2/3/4.html'})
         )
         print(response)
@@ -89,8 +79,6 @@ class TestCleanTalk(unittest.TestCase):
             sender_ip='127.0.0.1',  # IP address of the visitor
             sender_email='s@cleantalk.org',  # Email IP of the visitor
             sender_nickname='aa-shi',  # Nickname of the visitor
-            submit_time=12,  # The time taken to fill the comment form in seconds
-            js_on=1,  # The presence of JavaScript for the site visitor, 0|1
             post_info=json.dumps({'post_url': 'https://text.com/1/2/3/4.html'})
         )
         print(response)
