@@ -47,7 +47,7 @@ class CleanTalk:
         else:
             self.__agent = 'python-api-' + str(CleanTalk.VERSION)
 
-    def request(self, message, sender_ip, sender_email, sender_nickname, post_info, example = '', method_name = None, event_token = None):
+    def request(self, message, sender_ip, sender_email, sender_nickname, post_info='', example='', method_name=None, event_token=None):
         """
         This method will dispatch call to servers.
         Exceptions can be raised: ValueError on bad json, URLError on bad url, HTTPError, HTTPException on http-error
