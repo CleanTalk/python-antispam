@@ -1,27 +1,41 @@
 python-antispam
 ============
 
-Prevents spam in your python web apps. Cloud features allow you to use additional anti-spam functionality. Cloud features allow you to use additional anti-spam functionality, such as: Personal IP/Email lists, blocking by country, language, stop words and etc.
+Invisible spam protection for your Python apps — no CAPTCHA, no puzzles, no math.
 
 Spam attacks log - allows to view all filtered requests in the "Log of spam attacks".
 The log contains a detailed information about each request for a time period. At any time, you can check the request and make sure that the filtering is correct. A Python API for antispam service cleantalk.org. Invisible protection from spam, no captches, no puzzles, no animals and no math.
 
-## How API stops spam?
-API uses several simple tests to stop spammers.
-  * Spam bots signatures.
-  * Blacklists checks by Email, IP, web-sites domain names.
-  * JavaScript availability.
-  * Comment submit time.
-  * Relevance test for the comment.
+## Why CleanTalk?
+Tired of distorted images, puzzles with traffic lights, or invisible zebras?
+Here’s how CleanTalk compares:
+
+| Feature                         | CAPTCHA                          | CleanTalk                              |
+|---------------------------------|----------------------------------|----------------------------------------|
+| User Experience                 | Interrupts with puzzles, images  | Completely invisible                    |
+| Setup Complexity                | Medium to High                   | Easy integration with Python API       |
+| Mobile Usability                | Often frustrating                | Seamless experience                    |
+| Accessibility (e.g. screenreaders) | Limited                       | Fully accessible                       |
+| Spam Protection Method          | Challenge-based (user solves)    | Behavior-based (bot detection, JS, IP) |
+| Requires User Interaction       | ✅ Yes                            | ❌ No                                   |
+| Supports Form Relevance Checks | ❌ No                             | ✅ Yes                                  |
+
 
 ## How API works?
-API sends a comment's text and several previous approved comments to the servers. Servers evaluates the relevance of the comment's text on the topic, tests on spam and finaly provides a solution - to publish or put on manual moderation of comments. If a comment is placed on manual moderation, the plugin adds to the text of a comment explaining the reason for the ban server publishing.
+CleanTalk uses multiple layers of protection:
 
+- Spam bot signatures
+- Blacklist checks (email, IP, domain)
+- JavaScript presence
+- Submission time analysis
+- Comment relevance scoring
+- 
 ## Requirements
 
-   * Python 2.6 and above
-   * Python 3 and above 
-   * CleanTalk account https://cleantalk.org/register?product=anti-spam
+- Python 2.6+
+- Python 3.x
+- CURL support
+- CleanTalk account — [Sign up here](https://cleantalk.org/register?product=anti-spam)
 
 ## SPAM test for text comment sample 
 
