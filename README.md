@@ -1,4 +1,4 @@
-python-antispam
+# Python Anti-Spam & Bot Filter by CleanTalk — No CAPTCHA Needed
 ============
 
 Invisible spam protection for your Python apps — no CAPTCHA, no puzzles, no math.
