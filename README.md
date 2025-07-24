@@ -1,7 +1,7 @@
-# Python Anti-Spam & Bot Filter by CleanTalk — No CAPTCHA Needed
+# Python Anti-Spam & Bot Filter by CleanTalk — No CAPTCHA/reCaptcha Needed
 ============
 
-Invisible spam protection for your Python apps — no CAPTCHA, no puzzles, no math.
+Invisible spam protection for your Python apps — no CAPTCHA/reCaptcha, no puzzles, no math.
 
 Spam attacks log - allows to view all filtered requests in the "Log of spam attacks".
 The log contains a detailed information about each request for a time period. At any time, you can check the request and make sure that the filtering is correct. A Python API for antispam service cleantalk.org. Invisible protection from spam, no captches, no puzzles, no animals and no math.
