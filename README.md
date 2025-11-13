@@ -83,7 +83,7 @@ For improve protection include javascript to your layout before \<\/body\> tag:
 ```
 
 ## Changelog
-Version 1.2
+Version 1.3
   * New. Now page URL could be added to the request.
   * Mod. Tests file updated.
   * Mod. Readme updated.

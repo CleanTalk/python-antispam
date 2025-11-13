@@ -17,7 +17,7 @@ import json
 
 class CleanTalk:
     """Python API for CleanTalk.org"""
-    VERSION = 1.2
+    VERSION = 1.3
     ENCODING = 'utf-8'
     user_agent = 'Mozilla/5.0'
 
