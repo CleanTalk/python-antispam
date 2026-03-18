@@ -37,6 +37,10 @@ CleanTalk uses multiple layers of protection:
 - CURL support
 - CleanTalk account — [Sign up here](https://cleantalk.org/register?product=anti-spam)
 
+### Websites that trust CleanTalk!
+
+![CleanTalk Anti-Spam Rating](https://cleantalk.org/webpack/img/cleantalk_rating.png)
+
 ## SPAM test for text comment sample 
 
 ```python
