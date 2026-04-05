@@ -29,7 +29,9 @@ CleanTalk uses multiple layers of protection:
 - JavaScript presence
 - Submission time analysis
 - Comment relevance scoring
-- 
+
+If you find this project useful, please consider starring ⭐ it on GitHub — it helps us grow and support development!
+
 ## Requirements
 
 - Python 2.6+
