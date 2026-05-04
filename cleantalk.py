@@ -36,16 +36,29 @@ class CleanTalk:
         :param api_url:
         :param connection_timeout:
         :param method_name:
+
+        Usage:
+            ct = CleanTalk(auth_key='your_key')
+            ct.set_event_token_enabled(True)
+            response = ct.request(...)
         """
         self.__server_url = server_url
         self.__api_url = api_url
         self.__connection_timeout = connection_timeout
         self.__method_name = method_name
         self.__auth_key = auth_key
+        self.__event_token_enabled = None
         if agent:
             self.__agent = agent
         else:
             self.__agent = 'python-api-' + str(CleanTalk.VERSION)
+
+    def set_event_token_enabled(self, enabled):
+        """
+        Set event_token_enabled flag.
+        :param enabled: True|False
+        """
+        self.__event_token_enabled = enabled
 
     def request(self, message, sender_ip, sender_email, sender_nickname, post_info='', example='', method_name=None, event_token=None):
         """
@@ -85,7 +98,8 @@ class CleanTalk:
             'sender_nickname' : sender_nickname,
             'agent' : self.__agent,
             'post_info': post_info,
-            'event_token': event_token
+            'event_token': event_token,
+            'event_token_enabled': self.__event_token_enabled
         }
         data = json.dumps(values, separators=(',',':'))
         request = Request(url, data.encode(CleanTalk.ENCODING), headers)

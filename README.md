@@ -51,13 +51,14 @@ import json
 
 
 ct = CleanTalk(auth_key='yourkey')
+# ct.set_event_token_enabled(True)  # See Bot-Detector Integration section below
 ct_result = ct.request(
                 message = 'abc', # Required. Visitor comment
                 sender_ip = '196.19.250.114', # Required. Visitor IP address
                 sender_email = 'stop_email@example.com', # Required. Visitor email
                 sender_nickname = 'spam_bot', # Required. Visitor nickname
-                post_info= json.dumps({'post_url': 'https://yoursite.com'}) # Optional. Additional post info in JSON format.
-                # event_token = 'xxx' # fill it with ct_bot_detector_event_token hidden input from your form (auto generate)
+                post_info= json.dumps({'post_url': 'https://yoursite.com'}), # Optional. Additional post info in JSON format.
+                event_token = 'xxx' # Optional. Fill it with ct_bot_detector_event_token hidden input from your form (auto generate). See Bot-Detector Integration section below
         )
 #Check
 if ct_result['allow']:
@@ -83,10 +84,48 @@ Then you can use Cleantalk class import:
 from cleantalk_python_antispam.cleantalk import CleanTalk
 ```
 
-For improve protection include javascript to your layout before \<\/body\> tag:
+## Bot-Detector Integration
+For improved protection, integrate CleanTalk's bot-detector JavaScript on your website:
+
+### 1. Include the bot-detector script
+Add this JavaScript to your layout before `</body>` tag:
 ```html
 <script type="text/javascript" src="https://fd.cleantalk.org/ct-bot-detector-wrapper.js"></script>
 ```
+
+### 2. Set the event_token_enabled flag in Python
+When you have integrated the bot-detector JavaScript, inform the API by setting the `event_token_enabled` flag:
+
+```python
+ct = CleanTalk(auth_key='yourkey')
+ct.set_event_token_enabled(True)  # Tell API that bot-detector is enabled
+
+ct_result = ct.request(
+    message = 'user comment',
+    sender_ip = '196.19.250.114',
+    sender_email = 'user@example.com',
+    sender_nickname = 'username',
+    event_token = 'xxx'  # Token from bot-detector JavaScript
+)
+```
+
+If you decide not to use bot-detector:
+```python
+ct = CleanTalk(auth_key='yourkey')
+ct.set_event_token_enabled(False)  # Bot-detector is not enabled
+
+ct_result = ct.request(
+    message = 'user comment',
+    sender_ip = '196.19.250.114',
+    sender_email = 'user@example.com',
+    sender_nickname = 'username'
+)
+```
+
+### event_token_enabled flag values:
+  * `True` - bot-detector is integrated and enabled (JavaScript token will be used for advanced bot detection)
+  * `False` - bot-detector is not integrated or disabled
+  * `None` (default) - no explicit bot-detector status specified
 
 ## Changelog
 Version 1.3
